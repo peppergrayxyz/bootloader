@@ -1,0 +1,15 @@
+[tasks.convert]
+install_crate = "bashtestmd"
+command = "bashtestmd"
+args = ["--input", "tutorial.md", "--output", "tutorial.sh", "--tag", "tutorial"]
+
+[tasks.rm]
+cwd = "../../examples"
+script = "rm -rf basic"
+
+[tasks.create]
+cwd = "../../examples"
+script = "../docs/tutorial/tutorial.sh"
+
+[tasks.all]
+dependencies = ["convert", "rm", "create"]
